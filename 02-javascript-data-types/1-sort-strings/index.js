@@ -8,21 +8,15 @@
 
 export function sortStrings(arr, param = 'asc') {
 
+const directions = {
 
-if  (param === 'asc') {
-        const arrnew = [...arr].sort((a, b) => a.localeCompare(b,['ru-Ru','en-US'],{caseFirst:"upper"}));
-        return arrnew;
-    }
-
-else if (param === 'desc') {
-        const arrnew = [...arr].sort((a, b) => a.localeCompare(b,['ru-Ru','en-US'], {caseFirst:"upper"})).reverse();
-        return arrnew;
-    } 
-
-else {
-        console.log('ERROR: wrong sorting order paramener: ', param, '/n "asc" or "desc" parameters only ');
-        return null;
-        }
+    asc : 1,
+    desc : -1
 
 }
-//['ru','en'],
+
+    return [...arr].sort((a, b) => directions[param] * a.localeCompare(b,['ru-Ru','en-US'],{caseFirst:"upper"}));
+ 
+}
+
+

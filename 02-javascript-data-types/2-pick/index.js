@@ -6,4 +6,20 @@
  */
 export const pick = (obj, ...fields) => {
 
+
+    const arrayFromObj = Object.entries(obj);
+    const resultArray = [];
+    
+    arrayFromObj.map(([key, value]) => {
+                
+        if (fields.includes(key))  { 
+                 
+                 resultArray.push([key,value]);
+          
+                                    }
+
+                                       });
+
+    return  Object.fromEntries(resultArray);
+  
 };
